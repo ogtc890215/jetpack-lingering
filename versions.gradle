@@ -53,7 +53,7 @@ support.mediarouter = "com.android.support:mediarouter-v7:$versions.support"
 support.palette = "com.android.support:palette-v7:$versions.support"
 support.percent = "com.android.support:percent:$versions.support"
 deps.support = support
-androidx.appcompat = "androidx.appcompat:appcompat:1.0.0-alpha1"
+androidx.appcompat = "androidx.appcompat:appcompat:1.0.0-beta01"
 
 versions.multidex = '1.0.3'
 deps.multidex = "com.android.support:multidex:$versions.multidex"
