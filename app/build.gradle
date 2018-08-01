@@ -1,11 +1,18 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: plugIns.safeargs
 
 android {
     compileSdkVersion 28
+
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
-        applicationId "gq.jetpack.timber"
+        applicationId "gq.jetpack.lingering"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
@@ -25,8 +32,14 @@ dependencies {
     implementation deps.kotlin.stdlib
     implementation deps.androidx.appcompat
     implementation deps.constraint_layout
+    implementation deps.dagger.runtime
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
     testImplementation deps.junit
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.atsl.rules
     androidTestImplementation deps.espresso.core
+    kapt deps.databinding.compiler
+    kapt deps.dagger.compiler
+    kapt deps.dagger.android_support_compiler
 }

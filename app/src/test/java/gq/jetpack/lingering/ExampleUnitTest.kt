@@ -1,4 +1,4 @@
-package gq.jetpack.timber
+package gq.jetpack.lingering
 
 import org.junit.Test
 

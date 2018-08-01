@@ -1,4 +1,4 @@
-package gq.jetpack.timber
+package gq.jetpack.lingering
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("gq.jetpack.timber", appContext.packageName)
+        assertEquals("gq.jetpack.lingering", appContext.packageName)
     }
 }
