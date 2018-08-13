@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="navigation_header_height">208dp</dimen>
+    <dimen name="navigation_avatars_border_size">8dp</dimen>
+    <dimen name="navigation_avatars_size">64dp</dimen>
+</resources>

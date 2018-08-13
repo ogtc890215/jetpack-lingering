@@ -12,6 +12,10 @@ import javax.inject.Inject
  * @author <a href="mailto:ogtc890215@gmail.com">guqi</a>
  */
 class LingeringApp : Application(), HasActivityInjector {
+    companion object {
+        const val TAG = "Lingering"
+    }
+
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 

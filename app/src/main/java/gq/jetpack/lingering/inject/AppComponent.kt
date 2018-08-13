@@ -4,7 +4,6 @@ import android.app.Application
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
-import dagger.android.support.AndroidSupportInjectionModule
 import gq.jetpack.lingering.LingeringApp
 import javax.inject.Singleton
 
@@ -14,8 +13,9 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     AndroidInjectionModule::class,
-    AndroidSupportInjectionModule::class,
-    MainActivityModule::class
+    AppModule::class,
+    ViewModelModule::class,
+    ActivitiesModule::class
 ])
 interface AppComponent {
 

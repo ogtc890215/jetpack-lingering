@@ -13,11 +13,17 @@ android {
 
     defaultConfig {
         applicationId "gq.jetpack.lingering"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
     }
     buildTypes {
         release {
@@ -31,15 +37,26 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation deps.kotlin.stdlib
     implementation deps.androidx.appcompat
-    implementation deps.constraint_layout
+    implementation deps.androidx.constraint_layout
+    implementation deps.androidx.lifecycle.extensions
+    implementation deps.androidx.room.runtime
     implementation deps.dagger.runtime
     implementation deps.dagger.android
     implementation deps.dagger.android_support
+    implementation deps.google.material
+    implementation deps.ktx.navigation.fragment
+    implementation deps.ktx.navigation.ui
+    implementation deps.ktx.palette
+    implementation deps.glide.runtime
+
     testImplementation deps.junit
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.atsl.rules
     androidTestImplementation deps.espresso.core
+
     kapt deps.databinding.compiler
     kapt deps.dagger.compiler
     kapt deps.dagger.android_support_compiler
+    kapt deps.androidx.room.compiler
+//    kapt deps.glide.compiler
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <padding
+        android:bottom="@dimen/navigation_avatars_border_size"
+        android:left="@dimen/navigation_avatars_border_size"
+        android:right="@dimen/navigation_avatars_border_size"
+        android:top="@dimen/navigation_avatars_border_size" />
+    <stroke
+        android:width="@dimen/navigation_avatars_border_size"
+        android:color="#b72f3d" />
+    <solid android:color="#36474e" />
+</shape>

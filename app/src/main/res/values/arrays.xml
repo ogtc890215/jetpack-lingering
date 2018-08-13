@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="library_class">
+        <item>TRACKS</item>
+        <item>ALBUMS</item>
+        <item>ARTISTS</item>
+        <item>GENRES</item>
+    </string-array>
+</resources>

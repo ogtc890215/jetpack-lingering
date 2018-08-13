@@ -2,13 +2,14 @@ package gq.jetpack.lingering.inject
 
 import android.app.Activity
 import android.app.Application
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import dagger.android.AndroidInjection
-import dagger.android.HasFragmentInjector
 import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.HasSupportFragmentInjector
 import gq.jetpack.lingering.LingeringApp
 
 /**
@@ -44,17 +45,17 @@ object AppInjector {
     }
 
     fun handleActivityInjection(activity: Activity) {
-        if (activity is HasFragmentInjector) {
+        if (activity is HasSupportFragmentInjector) {
             AndroidInjection.inject(activity)
         }
         if (activity is FragmentActivity) {
             activity.supportFragmentManager
                     .registerFragmentLifecycleCallbacks(
                             object : FragmentManager.FragmentLifecycleCallbacks() {
-                                override fun onFragmentCreated(
+                                override fun onFragmentAttached(
                                         fm: FragmentManager,
                                         f: Fragment,
-                                        savedInstanceState: Bundle?) {
+                                        context: Context) {
                                     if (f is Injectable) {
                                         AndroidSupportInjection.inject(f)
                                     }

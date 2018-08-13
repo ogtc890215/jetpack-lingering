@@ -8,3 +8,5 @@ build/
 /gradlew*
 /captures
 .externalNativeBuild
+schemas/
+.gradletasknamecache

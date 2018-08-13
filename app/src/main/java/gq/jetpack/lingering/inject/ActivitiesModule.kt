@@ -8,7 +8,7 @@ import gq.jetpack.lingering.MainActivity
  * @author <a href="mailto:ogtc890215@gmail.com">guqi</a>
  */
 @Module
-abstract class MainActivityModule {
+abstract class ActivitiesModule {
     @ContributesAndroidInjector(modules = [FragmentsModule::class])
     abstract fun contributeMainActivity(): MainActivity
 }
