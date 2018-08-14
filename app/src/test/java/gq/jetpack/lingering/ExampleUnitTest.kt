@@ -1,5 +1,9 @@
 package gq.jetpack.lingering
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import gq.jetpack.lingering.utils.AbsentLiveData
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -13,5 +17,15 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun autoTriggerLiveData() {
+        val trigger = MutableLiveData<Boolean>()
+        trigger.value = true
+        val result = Transformations.switchMap(trigger) {
+            System.out.println("$it")
+            AbsentLiveData.create<Boolean>()
+        }
     }
 }

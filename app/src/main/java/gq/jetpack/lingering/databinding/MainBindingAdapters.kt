@@ -19,9 +19,7 @@ object MainBindingAdapters {
     fun setAvatar(nav: NavigationView, avatars: Bitmap?, placeholder: Drawable?) {
         nav.getHeaderView(0)?.findViewById<ImageView>(R.id.avatar)?.setImageDrawable(
                 avatars?.let {
-                    RoundedBitmapDrawableFactory.create(nav.resources, it).also {
-                        it.isCircular = true
-                    }
+                    RoundedBitmapDrawableFactory.create(nav.resources, it).apply { isCircular = true }
                 } ?: placeholder)
     }
 
@@ -29,7 +27,7 @@ object MainBindingAdapters {
     @BindingAdapter("tabs")
     fun setTabs(tabLayout: TabLayout, tabs: Array<String>) {
         tabs.forEach { tab ->
-            tabLayout.addTab(tabLayout.newTab().also { it.text = tab })
+            tabLayout.addTab(tabLayout.newTab().apply { text = tab })
         }
     }
 }

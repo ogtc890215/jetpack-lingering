@@ -8,12 +8,12 @@ import androidx.room.TypeConverter
  */
 object DbTypeConverters {
 
-    @TypeConverter
     @JvmStatic
+    @TypeConverter
     fun uriToString(uri: Uri): String = uri.toString()
 
-    @TypeConverter
     @JvmStatic
+    @TypeConverter
     fun stringToUri(string: String): Uri = Uri.parse(string)
 
 }

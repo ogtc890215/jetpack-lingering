@@ -63,7 +63,7 @@ versions.multidex = '1.0.3'
 deps.multidex = "com.android.support:multidex:$versions.multidex"
 versions.constraint_layout = '1.1.2'
 deps.constraint_layout = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
-androidx.constraint_layout = "androidx.constraintlayout:constraintlayout:1.1.2"
+androidx.constraint_layout = "androidx.constraintlayout:constraintlayout:2.0.0-alpha2"
 
 def ktx = [:]
 versions.ktx = '1.0.0-rc01'
@@ -134,7 +134,7 @@ androidx.paging.common = "androidx.paging:paging-common:$versions.androidx" // t
 androidx.paging.rxjava2 = "androidx.paging:paging-rxjava2:$versions.androidx"
 
 def navigation = [:]
-versions.navigation = '1.0.0-alpha04'
+versions.navigation = '1.0.0-alpha05'
 navigation.fragment = "android.arch.navigation:navigation-fragment:$versions.navigation"
 navigation.ui = "android.arch.navigation:navigation-ui:$versions.navigation"
 navigation.testing = "android.arch.navigation:navigation-testing:$versions.navigation" // androidTest
@@ -148,7 +148,7 @@ ktx.navigation.testing = "android.arch.navigation:navigation-testing-ktx:$versio
 ktx.navigation.ui = "android.arch.navigation:navigation-ui-ktx:$versions.navigation"
 
 def work = [:]
-versions.work = '1.0.0-alpha05'
+versions.work = '1.0.0-alpha06'
 work.runtime = "android.arch.work:work-runtime:$versions.work"
 work.firebase = "android.arch.work:work-firebase:$versions.work"
 work.testing = "android.arch.work:work-testing:$versions.work" // androidTest
@@ -217,6 +217,7 @@ deps.mockito = mockito
 def kotlin = [:]
 versions.kotlin = '1.2.60'
 kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+kotlin.jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
 kotlin.test = "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
 kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
 deps.kotlin = kotlin

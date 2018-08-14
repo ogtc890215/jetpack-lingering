@@ -19,11 +19,11 @@ abstract class ViewModelModule {
     @ViewModelKey(UserViewModel::class)
     abstract fun bindUserViewModel(userViewModel: UserViewModel): ViewModel
 
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(AudioLibraryViewModel::class)
-//    abstract fun bindAudioViewModel(libraryViewModel: AudioLibraryViewModel): ViewModel
-//
+    @Binds
+    @IntoMap
+    @ViewModelKey(AudioLibraryViewModel::class)
+    abstract fun bindAudioViewModel(libraryViewModel: AudioLibraryViewModel): ViewModel
+
 //    @Binds
 //    @IntoMap
 //    @ViewModelKey(PlaylistsViewModel::class)
