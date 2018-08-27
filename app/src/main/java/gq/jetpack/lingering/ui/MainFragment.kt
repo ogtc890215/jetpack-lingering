@@ -1,19 +1,20 @@
 package gq.jetpack.lingering.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-import com.google.android.material.tabs.TabLayout
-import gq.jetpack.lingering.MainActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import gq.jetpack.lingering.AppExecutors
 import gq.jetpack.lingering.R
+import gq.jetpack.lingering.databinding.FragmentDataBindingComponent
 import gq.jetpack.lingering.databinding.FragmentLibraryBinding
 import gq.jetpack.lingering.inject.Injectable
+import gq.jetpack.lingering.ui.adapter.LibraryPagerAdapter
+import gq.jetpack.lingering.viewmodel.AudioLibraryViewModel
 import javax.inject.Inject
 
 /**
@@ -22,13 +23,25 @@ import javax.inject.Inject
 class MainFragment : Fragment(), Injectable {
     @Inject
     lateinit var mainActivity: MainActivity
-    lateinit var binding: FragmentLibraryBinding
+    private lateinit var binding: FragmentLibraryBinding
+    private val dataBindingComponent = FragmentDataBindingComponent(this)
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private lateinit var libraryViewModel: AudioLibraryViewModel
+    @Inject
+    lateinit var appExecutors: AppExecutors
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        libraryViewModel = ViewModelProviders.of(this, viewModelFactory).get(AudioLibraryViewModel::class.java)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_library, container, false)
         binding.setLifecycleOwner(this)
-//        binding.tabs.setupWithViewPager(binding.libraryPager, true)
-//        binding.libraryPager.adapter = LibraryPagerAdapter(fragmentManager!!)
+        binding.tabs.setupWithViewPager(binding.libraryPager, true)
+        binding.libraryPager.adapter =
+                LibraryPagerAdapter(context!!, appExecutors, dataBindingComponent)
         return binding.root
     }
 
@@ -36,15 +49,4 @@ class MainFragment : Fragment(), Injectable {
         super.onStart()
         mainActivity.setupActionBar(binding.toolbar)
     }
-
-//    class LibraryPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-//        @Inject
-//        lateinit var context: Context
-//
-//        override fun getCount() = context.resources.getStringArray(R.array.library_class).size
-//
-//        override fun getItem(position: Int): Fragment {
-//        }
-//
-//    }
 }

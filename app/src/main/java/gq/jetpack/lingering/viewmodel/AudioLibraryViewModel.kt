@@ -1,12 +1,12 @@
 package gq.jetpack.lingering.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import gq.jetpack.lingering.data.Audio
 import gq.jetpack.lingering.data.Resource
 import gq.jetpack.lingering.repository.AudioLibraryRepository
+import gq.jetpack.lingering.utils.TriggerLiveData
 import javax.inject.Inject
 
 /**
@@ -14,5 +14,8 @@ import javax.inject.Inject
  */
 class AudioLibraryViewModel @Inject constructor(libraryRepository: AudioLibraryRepository) : ViewModel() {
 
-    val tracks: LiveData<Resource<List<Audio>>> = libraryRepository.loadTracks()
+    private val refresh = TriggerLiveData()
+
+    val tracks: LiveData<Resource<List<Audio>>> = Transformations.switchMap(refresh) { libraryRepository.loadTracks() }
+
 }

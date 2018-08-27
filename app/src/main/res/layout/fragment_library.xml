@@ -21,9 +21,8 @@
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:tabMode="fixed"
                 app:tabGravity="fill"
-                app:tabs="@{@stringArray/library_class}" />
+                app:tabMode="fixed" />
 
         </com.google.android.material.appbar.AppBarLayout>
 

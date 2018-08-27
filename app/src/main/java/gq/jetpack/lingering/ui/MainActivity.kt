@@ -1,4 +1,4 @@
-package gq.jetpack.lingering
+package gq.jetpack.lingering.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +14,7 @@ import androidx.navigation.ui.NavigationUI
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
+import gq.jetpack.lingering.R
 import gq.jetpack.lingering.databinding.ActivityMainBinding
 import gq.jetpack.lingering.viewmodel.UserViewModel
 import javax.inject.Inject

@@ -5,7 +5,7 @@ buildscript {
     addRepos(repositories)
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.0-alpha05'
+        classpath 'com.android.tools.build:gradle:3.3.0-alpha07'
         classpath deps.kotlin.plugin
         classpath deps.navigation.safe_args_plugin
 

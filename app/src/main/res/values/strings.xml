@@ -10,4 +10,11 @@
 
     <!-- accessibility -->
     <string name="desc_nav_header_avatar">Select your avatar picture</string>
+    <string name="desc_library_item_more">More options</string>
+
+    <!-- audio library pagers -->
+    <string name="library_track">TRACKS</string>
+    <string name="library_album">ALBUMS</string>
+    <string name="library_artist">ARTISTS</string>
+    <string name="library_genre">GENRES</string>
 </resources>
